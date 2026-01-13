@@ -43,7 +43,7 @@
 }
 
 .notification-toggle.has-unread {
-    border-color: #2196F3;
+    border-color: var(--color-info);
     background: rgba(33, 150, 243, 0.1);
     animation: pulse 2s infinite;
 }
@@ -52,10 +52,10 @@
     position: absolute;
     top: -8px;
     right: -8px;
-    background: #F44336;
+    background: var(--color-error);
     color: white;
-    font-size: 0.7rem;
-    font-weight: bold;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
     padding: 0.2rem 0.4rem;
     border-radius: 10px;
     min-width: 1.2rem;
@@ -97,7 +97,7 @@
 }
 
 .light-mode .notification-toggle.has-unread {
-    border-color: #2196F3;
+    border-color: var(--color-info);
     background: rgba(33, 150, 243, 0.1);
 }
 

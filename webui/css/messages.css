@@ -13,7 +13,7 @@
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   scrollbar-width: thin;
-  scrollbar-color: #555 transparent;
+  scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
 
 #chat-history > *:first-child {
@@ -33,17 +33,17 @@
 #chat-history::-webkit-scrollbar-thumb {
   border-radius: 3px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
-  background-color: #555;
+  background-color: var(--color-scrollbar-thumb);
   -webkit-transition: background-color var(--transition-speed) ease-in-out;
   transition: background-color var(--transition-speed) ease-in-out;
 }
 
 #chat-history::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
+  background-color: var(--color-scrollbar-thumb-hover);
 }
 
 #chat-history::-webkit-scrollbar-thumb:active {
-  background-color: #888;
+  background-color: var(--color-scrollbar-thumb-active);
 }
 
 /* Message Styles */
@@ -78,7 +78,7 @@
 }
 
 .message-user {
-  background-color: #4a4a4a;
+  background-color: var(--color-msg-user);
   /* border-bottom-right-radius: var(--spacing-xxs); */
   /* min-width: 195px; */
   text-align: end;
@@ -124,7 +124,7 @@
   margin-bottom: 0;
 }
 
-/* Update message types for dark mode */
+/* Message type colors - using CSS variables for theme support */
 .message-default,
 .message-agent,
 .message-agent-response,
@@ -136,32 +136,32 @@
 .message-util,
 .message-warning,
 .message-error {
-  color: #e0e0e0;
+  color: var(--color-message-text);
 }
 
 .message-default {
-  background-color: #1a242f;
+  background-color: var(--color-msg-default);
 }
 
 .message-agent {
-  background-color: #34506b;
+  background-color: var(--color-msg-agent);
 }
 
 .message-agent-response {
   min-width: 255px;
-  background-color: #1f3c1e;
+  background-color: var(--color-msg-response);
 }
 
 .message-agent-delegation {
-  background-color: #12685e;
+  background-color: var(--color-msg-delegation);
 }
 
 .message-tool {
-  background-color: #2a4170;
+  background-color: var(--color-msg-tool);
 }
 
 .message-code-exe {
-  background-color: #4b3a69;
+  background-color: var(--color-msg-code);
 }
 
 .message-body .message-markdown-table-wrap {
@@ -186,7 +186,7 @@
 }
 
 .message-browser {
-  background-color: #4b3a69;
+  background-color: var(--color-msg-browser);
 }
 
 .message-info {
@@ -194,16 +194,16 @@
 }
 
 .message-util {
-  background-color: #23211a;
+  background-color: var(--color-msg-util);
   display: none;
 }
 
 .message-warning {
-  background-color: #bc8036;
+  background-color: var(--color-msg-warning);
 }
 
 .message-error {
-  background-color: #af2222;
+  background-color: var(--color-msg-error);
 }
 
 .message-code-exe .message-body {
@@ -254,7 +254,7 @@
 }
 
 .msg-kvps tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--color-overlay-light);
 }
 
 .msg-heading {
@@ -328,7 +328,7 @@
   object-fit: cover;
   object-position: top left;
   border-radius: 10%;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--color-overlay-light);
 }
 
 .image-viewer-img {
@@ -414,68 +414,25 @@
   }
 }
 
+/* Light mode message styles - colors are inherited from CSS variables */
 .light-mode .msg-kvps tr {
-  border-bottom: 1px solid rgb(192 192 192 / 50%);
+  border-bottom: 1px solid rgba(192, 192, 192, 0.5);
 }
 
-.light-mode .message-default {
-  background-color: var(--color-panel);
-  color: #1a242f;
-}
-
-.light-mode .message-agent {
-  background-color: var(--color-panel);
-  color: #356ca3;
-}
-
-.light-mode .message-agent-response {
-  background-color: var(--color-panel);
-  color: #188216;
-}
-
-.light-mode .message-agent-delegation {
-  background-color: var(--color-panel);
-  color: #12685e;
-}
-
-.light-mode .message-tool {
-  background-color: var(--color-panel);
-  color: #1c3c88;
-}
-
-.light-mode .message-code-exe {
-  background-color: var(--color-panel);
-  color: #6c43b0;
-}
-
-.light-mode .message-browser {
-  background-color: var(--color-panel);
-  color: #6c43b0;
-}
-
-.light-mode .message-info {
-  background-color: var(--color-panel);
-  color: #3f3f3f;
-}
-
-.light-mode .message-util {
-  background-color: var(--color-panel);
-  color: #5b5540;
-}
-
-.light-mode .message-warning {
-  background-color: var(--color-panel);
-  color: #8f4800;
-}
-
-.light-mode .message-error {
-  background-color: var(--color-panel);
-  color: #8f1010;
-}
-
+/* Light mode uses CSS variable colors, text colors adjusted for contrast */
+.light-mode .message-default,
+.light-mode .message-agent,
+.light-mode .message-agent-response,
+.light-mode .message-agent-delegation,
+.light-mode .message-tool,
+.light-mode .message-code-exe,
+.light-mode .message-browser,
+.light-mode .message-info,
+.light-mode .message-util,
+.light-mode .message-warning,
+.light-mode .message-error,
 .light-mode .message-user {
-  background-color: var(--color-panel);
-  color: #4e4e4e;
+  color: var(--color-message-text);
 }
 
 /* Markdown in messages */
@@ -541,18 +498,18 @@
 .msg-content th,
 .msg-content td {
   padding: 0.55em 1em;
-  border: 1px solid rgba(142, 142, 142, 0.1);
+  border: 1px solid var(--color-overlay-subtle);
   text-align: left;
   background: transparent;
 }
 
 .msg-content th {
-  font-weight: 600;
-  background: rgba(142, 142, 142, 0.1);
+  font-weight: var(--font-weight-semibold);
+  background: var(--color-overlay-subtle);
 }
 
 .msg-content tr:nth-child(even) {
-  background: rgba(142, 142, 142, 0.1);
+  background: var(--color-overlay-subtle);
 }
 
 .msg-content tr:nth-child(odd) {
@@ -565,8 +522,8 @@
 
 .msg-content pre:has(code) {
   padding: 0.5em;
-  border: 1px solid rgba(142, 142, 142, 0.1);
-  border-radius: 0.3em;
+  border: 1px solid var(--color-overlay-subtle);
+  border-radius: var(--border-radius-sm);
 }
 
 .msg-min-max-btns {

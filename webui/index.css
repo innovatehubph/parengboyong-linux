@@ -8,9 +8,16 @@
 }
 
 :root {
-  /* Dark mode */
+  /* ========================================
+   * PARENG BOYONG DESIGN SYSTEM
+   * Standardized CSS Variables v2.0
+   * ======================================== */
+
+  /* Dark mode base colors */
   --color-background-dark: #131313;
   --color-text-dark: #d4d4d4;
+  --color-text-secondary-dark: #a0a0a0;
+  --color-text-muted-dark: #707070;
   --color-primary-dark: #737a81;
   --color-secondary-dark: #656565;
   --color-accent-dark: #cf6679;
@@ -22,9 +29,24 @@
   --color-input-dark: #131313;
   --color-input-focus-dark: #101010;
 
-  /* Light mode */
+  /* Dark mode message type colors */
+  --color-msg-default-dark: #1a242f;
+  --color-msg-agent-dark: #34506b;
+  --color-msg-response-dark: #1f3c1e;
+  --color-msg-delegation-dark: #12685e;
+  --color-msg-tool-dark: #2a4170;
+  --color-msg-code-dark: #4b3a69;
+  --color-msg-browser-dark: #4b3a69;
+  --color-msg-util-dark: #23211a;
+  --color-msg-warning-dark: #bc8036;
+  --color-msg-error-dark: #af2222;
+  --color-msg-user-dark: #4a4a4a;
+
+  /* Light mode base colors */
   --color-background-light: #dbdbdb;
   --color-text-light: #333333;
+  --color-text-secondary-light: #555555;
+  --color-text-muted-light: #888888;
   --color-primary-light: #384653;
   --color-secondary-light: #e8eaf6;
   --color-accent-light: #b00020;
@@ -36,9 +58,45 @@
   --color-input-light: #e4e4e4;
   --color-input-focus-light: #dadada;
 
-  /* Default to dark mode */
+  /* Light mode message type colors */
+  --color-msg-default-light: #e8eef4;
+  --color-msg-agent-light: #d6e3f0;
+  --color-msg-response-light: #e0f0df;
+  --color-msg-delegation-light: #d4ede9;
+  --color-msg-tool-light: #dde4f2;
+  --color-msg-code-light: #e8e0f0;
+  --color-msg-browser-light: #e8e0f0;
+  --color-msg-util-light: #f0eee6;
+  --color-msg-warning-light: #fff3e0;
+  --color-msg-error-light: #ffebee;
+  --color-msg-user-light: #f5f5f5;
+
+  /* Status colors (universal) */
+  --color-success: #4caf50;
+  --color-success-dark: #00c340;
+  --color-warning: #ff9800;
+  --color-error: #f44336;
+  --color-error-dark: #e40138;
+  --color-info: #2196f3;
+
+  /* Scrollbar colors */
+  --color-scrollbar-thumb: #555555;
+  --color-scrollbar-thumb-hover: #666666;
+  --color-scrollbar-thumb-active: #888888;
+  --color-scrollbar-track: transparent;
+
+  /* Overlay colors */
+  --color-overlay-dark: rgba(0, 0, 0, 0.5);
+  --color-overlay-light: rgba(255, 255, 255, 0.15);
+  --color-overlay-subtle: rgba(142, 142, 142, 0.1);
+
+  /* Default to dark mode - Base colors */
   --color-background: var(--color-background-dark);
+  --color-bg: var(--color-background-dark);
+  --bg-color: var(--color-background-dark);
   --color-text: var(--color-text-dark);
+  --color-text-secondary: var(--color-text-secondary-dark);
+  --color-text-muted: var(--color-text-muted-dark);
   --color-primary: var(--color-primary-dark);
   --color-secondary: var(--color-secondary-dark);
   --color-accent: var(--color-accent-dark);
@@ -50,6 +108,21 @@
   --color-input: var(--color-input-dark);
   --color-input-focus: var(--color-input-focus-dark);
   --color-background-hover: color-mix(in srgb, var(--color-border) 50%, transparent);
+  --color-bg-secondary: var(--color-panel-dark);
+  --color-bg-tertiary: var(--color-message-bg-dark);
+
+  /* Default to dark mode - Message type colors */
+  --color-msg-default: var(--color-msg-default-dark);
+  --color-msg-agent: var(--color-msg-agent-dark);
+  --color-msg-response: var(--color-msg-response-dark);
+  --color-msg-delegation: var(--color-msg-delegation-dark);
+  --color-msg-tool: var(--color-msg-tool-dark);
+  --color-msg-code: var(--color-msg-code-dark);
+  --color-msg-browser: var(--color-msg-browser-dark);
+  --color-msg-util: var(--color-msg-util-dark);
+  --color-msg-warning: var(--color-msg-warning-dark);
+  --color-msg-error: var(--color-msg-error-dark);
+  --color-msg-user: var(--color-msg-user-dark);
 
   /* Spacing variables */
   --spacing-xxs: 0.15rem;
@@ -57,20 +130,54 @@
   --spacing-sm: 0.625rem;
   --spacing-md: 1.25rem;
   --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
 
-  /* Font sizes */
+  /* Font sizes - standardized scale */
+  --font-size-xs: 0.75rem;
   --font-size-small: 0.8rem;
-  --font-size-smaller: 0.9rem;
+  --font-size-smaller: 0.875rem;
   --font-size-normal: 1rem;
-  --font-size-large: 1.2rem;
+  --font-size-large: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /* Font families */
   --font-family-main: "Rubik", Arial, Helvetica, sans-serif;
   --font-family-code: "Roboto Mono", monospace;
 
-  /* Other variables */
+  /* Border radius - standardized scale */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
   --border-radius: 1.125rem;
+  --border-radius-xl: 1.5rem;
+  --border-radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* Transitions */
   --transition-speed: 0.3s;
+  --transition-speed-fast: 0.15s;
+  --transition-speed-slow: 0.5s;
+
+  /* Z-index scale */
+  --z-index-dropdown: 100;
+  --z-index-sticky: 500;
+  --z-index-modal: 1000;
+  --z-index-modal-content: 1001;
+  --z-index-tooltip: 2000;
+  --z-index-toast: 9999;
+
+  /* Other variables */
   --svg-filter: brightness(0) saturate(100%) var(--color-primary-filter);
   --color-primary-filter: invert(73%) sepia(17%) saturate(360%)
     hue-rotate(177deg) brightness(87%) contrast(85%);
@@ -78,8 +185,13 @@
 
 /* Light mode class */
 .light-mode {
+  /* Base colors */
   --color-background: var(--color-background-light);
+  --color-bg: var(--color-background-light);
+  --bg-color: var(--color-background-light);
   --color-text: var(--color-text-light);
+  --color-text-secondary: var(--color-text-secondary-light);
+  --color-text-muted: var(--color-text-muted-light);
   --color-primary: var(--color-primary-light);
   --color-secondary: var(--color-secondary-light);
   --color-accent: var(--color-accent-light);
@@ -90,6 +202,26 @@
   --color-input: var(--color-input-light);
   --color-input-focus: var(--color-input-focus-light);
   --color-background-hover: color-mix(in srgb, var(--color-border) 50%, transparent);
+  --color-bg-secondary: var(--color-panel-light);
+  --color-bg-tertiary: var(--color-message-bg-light);
+
+  /* Message type colors */
+  --color-msg-default: var(--color-msg-default-light);
+  --color-msg-agent: var(--color-msg-agent-light);
+  --color-msg-response: var(--color-msg-response-light);
+  --color-msg-delegation: var(--color-msg-delegation-light);
+  --color-msg-tool: var(--color-msg-tool-light);
+  --color-msg-code: var(--color-msg-code-light);
+  --color-msg-browser: var(--color-msg-browser-light);
+  --color-msg-util: var(--color-msg-util-light);
+  --color-msg-warning: var(--color-msg-warning-light);
+  --color-msg-error: var(--color-msg-error-light);
+  --color-msg-user: var(--color-msg-user-light);
+
+  /* Scrollbar colors for light mode */
+  --color-scrollbar-thumb: #bbbbbb;
+  --color-scrollbar-thumb-hover: #999999;
+  --color-scrollbar-thumb-active: #777777;
 }
 
 /* Reset and Base Styles */
@@ -713,9 +845,9 @@ h4 {
 }
 
 .slider {
-  background-color: #272727;
-  border: 1px solid #535353;
-  border-radius: 1.15rem;
+  background-color: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -727,7 +859,7 @@ h4 {
 }
 
 .slider:before {
-  background-color: #b6b6b6;
+  background-color: var(--color-text-secondary);
   border-radius: 50%;
   bottom: 0.134rem;
   content: "";
@@ -740,7 +872,7 @@ h4 {
 }
 
 input:checked + .slider {
-  background-color: #3a3a3a;
+  background-color: var(--color-message-bg);
 }
 
 input:checked + .slider:before {
@@ -771,11 +903,11 @@ input:checked + .slider:before {
 }
 
 .connected {
-  color: #00c340;
+  color: var(--color-success-dark);
 }
 
 .disconnected {
-  color: #e40138;
+  color: var(--color-error-dark);
 }
 
 .font-bold {
@@ -949,25 +1081,14 @@ a:active {
 
 
 .light-mode .connected {
-  color: #4caf50;
+  color: var(--color-success);
 }
 
 .light-mode .disconnected {
-  color: #f44336;
+  color: var(--color-error);
 }
 
-.light-mode .slider {
-  background-color: #f1f1f1;
-  border: 1px solid #dddddd;
-}
-
-.light-mode .slider:before {
-  background-color: #838383;
-}
-
-.light-mode input:checked + .slider {
-  background-color: #e6e6e6;
-}
+/* Light mode slider uses inherited CSS variable colors */
 
 .light-mode .extension {
   background: var(--color-primary);
