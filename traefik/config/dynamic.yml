@@ -1,0 +1,24 @@
+http:
+  routers:
+    pareng-boyong:
+      rule: "Host(`win-ai.innovatehub.site`)"
+      service: pareng-boyong-service
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    pareng-boyong-service:
+      loadBalancer:
+        servers:
+          - url: "http://host.docker.internal:5000"
+
+# Middleware for security headers (optional but recommended)
+  middlewares:
+    security-headers:
+      headers:
+        browserXssFilter: true
+        contentTypeNosniff: true
+        frameDeny: true
+        sslRedirect: true

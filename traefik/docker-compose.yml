@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v3.2
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9090:8080"  # Traefik dashboard (changed to avoid XAMPP conflict)
+    environment:
+      - TZ=Asia/Manila
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config/traefik.yml:/traefik.yml:ro
+      - ./config/dynamic.yml:/dynamic.yml:ro
+      - ./letsencrypt:/letsencrypt
+    networks:
+      - traefik_network
+    labels:
+      - "traefik.enable=true"
+      # Dashboard
+      - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.localhost`)"
+      - "traefik.http.routers.traefik-dashboard.service=api@internal"
+      - "traefik.http.routers.traefik-dashboard.entrypoints=web"
+
+  # Pareng Boyong will be added as a separate service
+  # or we'll use labels on the existing container
+
+networks:
+  traefik_network:
+    name: traefik_network
+    driver: bridge
